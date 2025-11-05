@@ -1,0 +1,17 @@
+{
+  "accounts": [
+  {"id": 1, "name": "Основной счет", "balance": 59000},
+  {"id": 2, "name": "Накопительный счет", "balance": 5000},
+  {"id": 3, "name": "Командный счет", "balance": 1000}
+  ],
+  "categories": [
+  {"id": 1, "type": "INCOME", "name": "Зарплата"},
+  {"id": 2, "type": "EXPENSE", "name": "Продукты"},
+  {"id": 3, "type": "EXPENSE", "name": "Развлечения"}
+  ],
+  "operations": [
+  {"id": 1, "type": "INCOME", "accountId": 1, "amount": 50000, "date": "2025-11-04T17:44:15.710641333", "description": "Зарплата за ноябрь", "categoryId": 1},
+  {"id": 2, "type": "EXPENSE", "accountId": 1, "amount": 2500, "date": "2025-11-04T17:44:15.711097012", "description": "Покупка продуктов", "categoryId": 2},
+  {"id": 3, "type": "INCOME", "accountId": 1, "amount": 1500, "date": "2025-11-04T17:44:15.785919910", "description": "Бонус", "categoryId": 1}
+  ]
+}
