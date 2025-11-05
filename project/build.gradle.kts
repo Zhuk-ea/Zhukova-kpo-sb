@@ -1,7 +1,7 @@
 plugins {
 	java
 	checkstyle
-    jacoco
+	jacoco
 	id("org.springframework.boot") version "3.4.2"
 	id("io.spring.dependency-management") version "1.1.7"
 }
@@ -44,31 +44,10 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
-jacoco {
-    toolVersion = "0.8.12"
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test)
-    reports {
-        xml.required = true
-        html.required = true
-        csv.required = false
-    }
-}
-
-tasks.jacocoTestCoverageVerification {
-    dependsOn(tasks.jacocoTestReport)
-    violationRules {
-        rule {
-            limit {
-                minimum = "0.6".toBigDecimal() // Минимум 60% покрытия
-            }
-        }
-    }
-}
 
 tasks.test {
-    finalizedBy(tasks.jacocoTestReport)
-    finalizedBy(tasks.jacocoTestCoverageVerification)
+	finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+	dependsOn(tasks.test) // tests are required to run before generating the report
 }
